@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   MAARS & Associates: design tokens
+   Navy-led corporate palette; brand blue taken from the firm's logo.
+------------------------------------------------------------------- */
+:root {
+  --white: #ffffff;
+  --surface: #f4f6f9;
+  --ink: #0b1b2b;
+  --body: #3a4757;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --navy: #0a2540;
+  --navy-800: #10304f;
+  --navy-900: #061629;
+  --brand: #01587d;
+  --brand-600: #01476a;
+  --sky: #7cc8ee;
+}
+
+@theme inline {
+  --color-white: var(--white);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-navy: var(--navy);
+  --color-navy-800: var(--navy-800);
+  --color-navy-900: var(--navy-900);
+  --color-brand: var(--brand);
+  --color-brand-600: var(--brand-600);
+  --color-sky: var(--sky);
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  background: var(--white);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  word-spacing: 0.06em;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--brand);
+  color: var(--white);
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--sky);
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.heading {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------------
+   Reveal system
+   `html.js` is added by an inline script before paint so animated
+   elements don't flash. If motion never initialises the class is
+   removed after a timeout, so content is never lost.
+------------------------------------------------------------------- */
+html.js [data-reveal],
+html.js [data-hero] {
+  opacity: 0;
+}
+html.js .split-word > span {
+  transform: translateY(105%);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
