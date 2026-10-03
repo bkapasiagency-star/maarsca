@@ -12,7 +12,7 @@ export function Footer() {
           <div className="col-span-2 lg:col-span-4">
             <div className="flex items-center gap-4">
               <span className="grid h-11 place-items-center rounded-md bg-white px-1.5">
-                <Image src="/brand/ca-india.png" alt="CA India" width={640} height={453} className="h-8 w-auto" />
+                <Image src="/brand/ca-india.png" alt="CA India" width={640} height={453} sizes="45px" className="h-8 w-auto" />
               </span>
               <span aria-hidden className="h-8 w-px bg-white/20" />
               <Image
@@ -20,6 +20,7 @@ export function Footer() {
                 alt={`${firm.name}, Chartered Accountants`}
                 width={2107}
                 height={252}
+                sizes="201px"
                 className="h-6 w-auto"
               />
             </div>

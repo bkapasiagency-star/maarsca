@@ -19,7 +19,7 @@ export function Team() {
             <li key={m.name} data-reveal="up">
               <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-line bg-white transition-shadow duration-300 hover:shadow-[0_24px_48px_-24px_rgba(10,37,64,0.3)]">
                 <div className="relative aspect-[4/5] overflow-hidden bg-navy">
-                  <div aria-hidden className="absolute -right-16 -top-16 size-56 rounded-full bg-brand/60 blur-3xl" />
+                  <div aria-hidden className="glow absolute -right-48 -top-48 size-[480px] [--glow:color-mix(in_srgb,var(--brand)_60%,transparent)]" />
                   <div aria-hidden className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-navy-900/60 to-transparent" />
                   <Image
                     src={m.photo}

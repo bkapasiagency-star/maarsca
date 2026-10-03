@@ -101,7 +101,7 @@ export function Navbar() {
                 light ? "" : "ring-1 ring-line"
               }`}
             >
-              <Image src="/brand/ca-india.png" alt="CA India" width={640} height={453} priority className="h-7 w-auto sm:h-8" />
+              <Image src="/brand/ca-india.png" alt="CA India" width={640} height={453} sizes="45px" loading="eager" className="h-7 w-auto sm:h-8" />
             </span>
             <span aria-hidden className={`h-7 w-px ${light ? "bg-white/25" : "bg-line"}`} />
             <span className="relative">
@@ -110,7 +110,8 @@ export function Navbar() {
                 alt=""
                 width={2107}
                 height={252}
-                priority
+                sizes="(min-width: 640px) 184px, 151px"
+                loading="eager"
                 className={`h-[18px] w-auto transition-opacity duration-300 sm:h-[22px] ${light ? "opacity-100" : "opacity-0"}`}
               />
               <Image
@@ -118,7 +119,7 @@ export function Navbar() {
                 alt=""
                 width={2107}
                 height={252}
-                priority
+                sizes="(min-width: 640px) 184px, 151px"
                 className={`absolute inset-0 h-[18px] w-auto transition-opacity duration-300 sm:h-[22px] ${light ? "opacity-0" : "opacity-100"}`}
               />
             </span>

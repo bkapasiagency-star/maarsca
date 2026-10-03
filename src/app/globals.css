@@ -91,12 +91,67 @@ html.lenis body {
    elements don't flash. If motion never initialises the class is
    removed after a timeout, so content is never lost.
 ------------------------------------------------------------------- */
-html.js [data-reveal],
-html.js [data-hero] {
+html.js [data-reveal] {
   opacity: 0;
 }
 html.js .split-word > span {
   transform: translateY(105%);
+}
+
+/* Hero entrance runs in CSS so it starts at first paint rather than after
+   the JS bundle has loaded and hydrated. */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--hero-y, 20px));
+  }
+}
+@keyframes hero-word {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+html.js [data-hero] {
+  animation: hero-rise 1s cubic-bezier(0.16, 1, 0.3, 1) var(--hero-delay, 0s) both;
+}
+html.js [data-hero="eyebrow"] {
+  --hero-delay: 0.1s;
+  --hero-y: 12px;
+}
+html.js [data-hero="copy"] {
+  --hero-delay: 0.55s;
+}
+html.js [data-hero="cta"] {
+  --hero-delay: 0.7s;
+}
+html.js [data-hero="panel"] {
+  --hero-delay: 0.5s;
+  --hero-y: 40px;
+  animation-duration: 1.3s;
+}
+html.js [data-hero="title"] {
+  animation: none;
+}
+html.js [data-hero="title"] .split-word > span {
+  animation: hero-word 1.2s cubic-bezier(0.16, 1, 0.3, 1) calc(0.1s + var(--i, 0) * 0.05s) both;
+}
+
+/* Soft glow: a radial gradient shaped like a blurred disc. Large CSS blur
+   filters are costly to rasterise on phones; this paints the same look. */
+.glow {
+  border-radius: 9999px;
+  background: radial-gradient(
+    closest-side,
+    var(--glow),
+    color-mix(in srgb, var(--glow) 97%, transparent) 20%,
+    color-mix(in srgb, var(--glow) 84%, transparent) 34%,
+    color-mix(in srgb, var(--glow) 50%, transparent) 53%,
+    color-mix(in srgb, var(--glow) 16%, transparent) 76%,
+    transparent
+  );
 }
 
 .no-scrollbar {

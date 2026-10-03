@@ -8,7 +8,7 @@ import { Journey } from "./Journey";
 export function Intro() {
   return (
     <section id="about" aria-labelledby="about-title" className="relative overflow-hidden bg-white py-20 sm:py-28 lg:py-32">
-      <div aria-hidden className="absolute -right-56 top-0 size-[520px] rounded-full bg-sky/15 blur-[120px]" />
+      <div aria-hidden className="glow absolute -right-[464px] -top-60 size-[1000px] [--glow:color-mix(in_srgb,var(--sky)_15%,transparent)]" />
 
       <div className="relative mx-auto max-w-[1280px] px-5 sm:px-8">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">

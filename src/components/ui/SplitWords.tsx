@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, type CSSProperties } from "react";
 
 /**
  * Renders a heading's words in overflow-masked spans so they can rise into
@@ -14,7 +14,9 @@ export function SplitWords({ text, emphasisClass = "text-brand" }: { text: strin
         return (
           <Fragment key={i}>
             <span className="split-word inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] align-top">
-              <span className={`inline-block will-change-transform ${emphasised ? emphasisClass : ""}`}>{word}</span>
+              <span className={`inline-block ${emphasised ? emphasisClass : ""}`} style={{ "--i": i } as CSSProperties}>
+                {word}
+              </span>
             </span>
             {i < words.length - 1 ? " " : null}
           </Fragment>

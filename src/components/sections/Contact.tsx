@@ -18,7 +18,7 @@ export function Contact() {
       aria-labelledby="contact-title"
       className="on-dark relative isolate overflow-hidden bg-navy py-20 text-white sm:py-28 lg:py-32"
     >
-      <div aria-hidden className="absolute -right-40 -top-40 -z-10 size-[640px] rounded-full bg-brand/40 blur-[150px]" />
+      <div aria-hidden className="glow absolute -right-[460px] -top-[460px] -z-10 size-[1240px] [--glow:color-mix(in_srgb,var(--brand)_40%,transparent)]" />
 
       <div className="mx-auto grid max-w-[1280px] gap-14 px-5 sm:px-8 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-5">

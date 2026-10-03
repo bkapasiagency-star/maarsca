@@ -1,48 +1,20 @@
-"use client";
-
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
 import { MapPin, Phone } from "lucide-react";
 import { firm, milestones } from "@/lib/content";
 import { Button, TextLink } from "@/components/ui/Button";
 import { SplitWords } from "@/components/ui/SplitWords";
 
-gsap.registerPlugin(useGSAP);
-
+// Entrance motion is CSS (see globals.css) so the hero paints with the HTML
+// instead of waiting for hydration.
 export function Hero() {
-  const root = useRef<HTMLElement>(null);
-
-  useGSAP(
-    () => {
-      if (!document.documentElement.classList.contains("js")) return;
-      const tl = gsap.timeline({ defaults: { ease: "expo.out" }, delay: 0.1 });
-      tl.fromTo("[data-hero='eyebrow']", { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: 0.9 })
-        .set("[data-hero='title']", { autoAlpha: 1 }, 0)
-        .to("[data-hero='title'] .split-word > span", { y: 0, yPercent: 0, duration: 1.2, stagger: 0.05 }, 0.1)
-        .fromTo("[data-hero='copy']", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 1 }, 0.55)
-        .fromTo("[data-hero='cta']", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 1, stagger: 0.08 }, 0.7)
-        .fromTo("[data-hero='panel']", { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 1.3 }, 0.5);
-
-      gsap.utils.toArray<HTMLElement>("[data-hero-count]").forEach((el) => {
-        const target = Number(el.dataset.heroCount);
-        const o = { v: 0 };
-        tl.to(o, { v: target, duration: 2, ease: "power3.out", onUpdate: () => (el.textContent = Math.round(o.v).toLocaleString("en-IN")) }, 0.9);
-      });
-    },
-    { scope: root },
-  );
-
   return (
     <section
-      ref={root}
       id="top"
       aria-labelledby="hero-title"
       className="on-dark relative isolate overflow-hidden bg-navy pb-20 pt-32 text-white sm:pt-36 lg:pb-28 lg:pt-44"
     >
       {/* Soft depth, no imagery */}
-      <div aria-hidden className="absolute -right-48 -top-48 -z-10 size-[760px] rounded-full bg-brand/45 blur-[150px]" />
-      <div aria-hidden className="absolute -bottom-64 -left-40 -z-10 size-[560px] rounded-full bg-navy-800 blur-[120px]" />
+      <div aria-hidden className="glow absolute -right-[512px] -top-[512px] -z-10 size-[1400px] [--glow:color-mix(in_srgb,var(--brand)_45%,transparent)]" />
+      <div aria-hidden className="glow absolute -bottom-[496px] -left-[400px] -z-10 size-[1040px] [--glow:var(--navy-800)]" />
 
       <div className="mx-auto grid max-w-[1280px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-7">
@@ -95,7 +67,7 @@ export function Hero() {
               <div key={m.label}>
                 <dd className="tabular text-[1.75rem] font-extrabold sm:text-[2.125rem] leading-none tracking-tight text-navy">
                   {m.prefix}
-                  <span data-hero-count={m.value}>{m.value.toLocaleString("en-IN")}</span>
+                  <span data-count={m.value}>{m.value.toLocaleString("en-IN")}</span>
                   <span className="text-brand">{m.suffix}</span>
                 </dd>
                 <dt className="mt-2 text-sm text-muted">{m.label}</dt>

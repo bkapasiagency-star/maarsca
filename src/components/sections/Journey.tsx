@@ -147,7 +147,7 @@ export function Journey() {
                   <Icon className="size-[1.125rem]" strokeWidth={2} aria-hidden />
                 </span>
 
-                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm transition-all duration-500 group-data-[state=active]/m:-translate-y-1 group-data-[state=active]/m:border-sky/35 group-data-[state=active]/m:bg-white/[0.08] group-data-[state=active]/m:shadow-[0_24px_50px_-24px_rgba(0,0,0,0.6)] group-data-[state=idle]/m:opacity-50 lg:mt-7 lg:min-h-[13.5rem] lg:p-6">
+                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition-all lg:backdrop-blur-sm duration-500 group-data-[state=active]/m:-translate-y-1 group-data-[state=active]/m:border-sky/35 group-data-[state=active]/m:bg-white/[0.08] group-data-[state=active]/m:shadow-[0_24px_50px_-24px_rgba(0,0,0,0.6)] group-data-[state=idle]/m:opacity-50 lg:mt-7 lg:min-h-[13.5rem] lg:p-6">
                   <p className="bg-gradient-to-r from-sky to-white bg-clip-text text-3xl font-extrabold tracking-tight text-transparent">
                     {j.year}
                   </p>
